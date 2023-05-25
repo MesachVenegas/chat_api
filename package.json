@@ -1,0 +1,13 @@
+{
+    "name": "chat_api",
+    "version": "1.0.0",
+    "description": "Chat API",
+    "main": "app.js",
+    "scripts": {
+        "start": "node ./src/app.js",
+        "dev": "nodemon ./src/app.js"
+    },
+    "keywords": [],
+    "author": "Mesach Venegas Santana",
+    "license": "ISC"
+}
