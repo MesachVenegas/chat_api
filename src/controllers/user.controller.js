@@ -2,39 +2,39 @@ const UserService = require('../services/users.service');
 const bcrypt = require('bcrypt');
 const path = require('path');
 
-const registerNewUser = async (req, res) => {
+const registerNewUser = async (req, res, next) => {
     try {
         const { userName, email, password } = req.body;
         const hashed = await bcrypt.hash(password, 10);
         await UserService.createUser({ userName, email, password: hashed });
         res.status(201).send();
     } catch (error) {
-        res.status(400).json(error);
+        next(error)
     }
 }
 
-const userLogin = async (req, res) => {
+const userLogin = async (req, res, next) => {
     try {
         const { email, password } = req.body;
         const response = await UserService.login(email, password);
         res.status(200).json(response)
     } catch (error) {
-        res.status(400).json(error);
+        next(error);
     }
 }
 
-const updateProfile = async (req, res) => {
+const updateProfile = async (req, res, next) => {
     try {
         const { id } = req.params;
         const data = req.body;
         await UserService.updateData(id, data);
         res.status(204).send();
     } catch (error) {
-        res.status(400).json(error);
+        next(error);
     }
 }
 
-const updateAvatar = async (req, res) => {
+const updateAvatar = async (req, res, next) => {
     try {
         const { id } = req.params;
 
@@ -49,7 +49,7 @@ const updateAvatar = async (req, res) => {
 
         file.mv(uploadPath, async (error) => {
             if(error){
-                return res.status(400).json(error);
+                next(error);
             }
 
             await UserService.loadAvatar(id, uploadPath)
@@ -57,7 +57,7 @@ const updateAvatar = async (req, res) => {
         })
 
     } catch (error) {
-        res.status(400).json(error);
+        next(error);
     }
 }
 
