@@ -23,7 +23,7 @@ const initModels = () => {
 
     // Un Usuario pertenece a uno o muchos Chats y un Chat puede tener uno o muchos usuarios.
     User.belongsToMany(Chat, { foreignKey: 'userId', through: ChatGroupType});
-    Chat.hasMany(User, { foreignKey: 'userId', through: UserGroupType});
+    Chat.belongsToMany(User, { foreignKey: 'chatId', through: ChatGroupType});
 }
 
 module.exports = initModels;
