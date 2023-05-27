@@ -56,6 +56,15 @@ class UserService {
 
     }
 
+    static async loadAvatar(avatar, user){
+        try {
+            await avatar.mv(`../images/avatar_${user.id}`);
+            return
+        } catch (error) {
+            return error;
+        }
+    }
+
 }
 
 module.exports = UserService;
