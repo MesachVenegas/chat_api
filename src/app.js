@@ -13,7 +13,12 @@ const app = express();
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(fileUpload());
+app.use(fileUpload({
+    createParentPath: true,
+    limits:{ fileSize: 10 * 1024 * 1024}, // Limita el tamaño del archivo a subir a 10mb
+    abortOnLimit: true,  // Indica si se supera el tamaño del archivo permitido aborte la subida del archivo.
+    responseOnLimit: 'the file exceeds the size limit'
+}));
 app.use(userRoutes);
 
 initModels();
