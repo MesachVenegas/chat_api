@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const db = require('../utils/connection');
 
-const Chat = db.define("conversations", {
+const Chat = db.define("chats", {
     title: {
         type: DataTypes.STRING(100),
         allowNull: false,
