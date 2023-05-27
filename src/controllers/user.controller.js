@@ -1,5 +1,6 @@
 const UserService = require('../services/users.service');
 const bcrypt = require('bcrypt');
+const path = require('path');
 
 const registerNewUser = async (req, res) => {
     try {
@@ -26,8 +27,35 @@ const updateProfile = async (req, res) => {
     try {
         const { id } = req.params;
         const data = req.body;
-        const response = await UserService.updateData(id, data);
-        res.status(200).json(response);
+        await UserService.updateData(id, data);
+        res.status(204).send();
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}
+
+const updateAvatar = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        if(req.files === undefined){
+            return;
+        }
+        if(!req.files || Object.keys(req.files).length === 0){
+            return res.status(400).json("No files were uploaded");
+        }
+        const file = req.files.avatar;
+        const uploadPath = path.join(__dirname,'../..', 'public', file.name);
+
+        file.mv(uploadPath, async (error) => {
+            if(error){
+                return res.status(400).json(error);
+            }
+
+            await UserService.loadAvatar(id, uploadPath)
+            res.status(202).json("File uploaded successfully");
+        })
+
     } catch (error) {
         res.status(400).json(error);
     }
@@ -36,5 +64,6 @@ const updateProfile = async (req, res) => {
 module.exports = {
     registerNewUser,
     updateProfile,
+    updateAvatar,
     userLogin
 };
