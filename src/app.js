@@ -1,4 +1,4 @@
-const db = require('./utils/database');
+const db = require('./utils/connection');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
