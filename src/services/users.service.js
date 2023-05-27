@@ -30,9 +30,9 @@ class UserService {
                     errorMessage: 'The password don\'t match'
                 }
             }
-            const {firstName, lastName, userName, email } = user;
+            const { id, firstName, lastName, userName, email } = user;
 
-            const userData = { firstName, lastName, userName, email }
+            const userData = { id, firstName, lastName, userName, email }
             const token = jwt.sign(userData, process.env.JWT_LOGIN_KEYWORD, {
                 algorithm: process.env.JWT_ALGORITHM,
                 expiresIn: '1h'
