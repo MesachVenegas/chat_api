@@ -9,11 +9,11 @@ class UserService {
             const newUser = await User.create(data);
             return newUser;
         } catch (error) {
-            return error;
+            throw error;
         }
     }
 
-    static async userLogin(reqEmail, reqPassword) {
+    static async login(reqEmail, reqPassword) {
         try {
             const user = await User.findOne({ where: { email: reqEmail } });
             if(!user) {
@@ -46,7 +46,7 @@ class UserService {
         }
     }
 
-    static async updateProfile(data){
+    static async updateData(data){
         try {
             const result = await User.update(data);
             return result;
@@ -61,7 +61,7 @@ class UserService {
             await avatar.mv(`../images/avatar_${user.id}`);
             return
         } catch (error) {
-            return error;
+            throw error;
         }
     }
 
