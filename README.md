@@ -12,58 +12,50 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
 
 ✅ Crear los servicios para los usuarios.
 
-* Create a new User ☑️
-* User Login ☑️
-* Update User profile data ☑️
-* load profile picture☑️
+    * Create a new User ☑️
+    * User Login ☑️
+    * Update User profile data ☑️
+    * load profile picture☑️
 
 ✅ Crear Controlador para usuarios
 
-* Create a new User ☑️
-* User Login ☑️
-* Update User profile data ☑️
-* load profile picture ❌
+    * Create a new User ☑️
+    * User Login ☑️
+    * Update User profile data ☑️
+    * load profile picture ❌
 
 ✅ Crear las rutas para los usuarios.
 
-* Create a new User ☑️
-* User Login ❌
-* Update User profile data ❌
-* load profile picture ❌
+    * Create a new User ☑️
+    * User Login ☑️
+    * Update User profile data ❌
+    * load profile picture ❌
 
 ❌ Crear los servicios para los Chats.
 
-* Create a new Chat ⚠️
-* Create a new Group Chat ⚠️
-* Create service to get all chats of a user and their messages(couples) ⚠️
-* Create a service to get all chats, participants and their message(groups) ⚠️
-* Delete a chat ⚠️
-* Can add new users to group chat❗
-* Delete users from group chat❗
+    * Create a new Chat ⚠️
+    * Create a new Group Chat ⚠️
+    * Create service to get all chats of a user and their messages(couples) ⚠️
+    * Create a service to get all chats, participants and their message(groups) ⚠️
+    * Delete a chat ⚠️
+    * Can add new users to group chat❗
+    * Delete users from group chat❗
 
 ❌ Crear Controlador para los chats
 
 ❌ Crear las rutas para los chats.
 
-❌ Crear los servicios para los chats
-
-❌ Crear controlador para el chat
-
-❌ Crear las rutas para el chat
-
 ❌ Crear Servicios para los mensajes
 
-* Create a new message ⚠️
+    * Create a new message ⚠️
 
 ❌ Crear Controlador para los mensajes
 
 ❌ Crear las rutas para los mensajes.
 
-❌ Crear los servicios para los mensajes
-
 ✅ Crear validaciones para la creación de usuarios.
 
-❌ Crear validaciones para el login de usuarios.
+✅ Crear validaciones para el login de usuarios.
 
 ❌ Crear middleware de autentificación de login de usuarios.
 
@@ -75,7 +67,7 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
 
 ✅ Registro de Usuarios.
 
-❌ Login de usuarios
+✅ Login de usuarios
 
 ❌ Lista de Contactos(Todos los usuarios registrados en la aplicación).
 
