@@ -38,7 +38,7 @@ const loginValidation = [
     }
 ]
 
-const updateProfile = [
+const updateValidation = [
     check('firstName', 'Error on first name field')
         .exists().withMessage("The first name field don't exist")
         .trim().notEmpty().withMessage("The first name field cannot be empty")
@@ -56,5 +56,6 @@ const updateProfile = [
 
 module.exports = {
     validateUserCreate,
-    loginValidation
+    loginValidation,
+    updateValidation
 }
