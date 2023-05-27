@@ -46,14 +46,15 @@ class UserService {
         }
     }
 
-    static async updateData(data){
+    static async updateData(id, data){
         try {
-            const result = await User.update(data);
+            const result = await User.update(data, {
+                where: { id: id }
+            });
             return result;
         } catch (error) {
-            return error;
+            throw error;
         }
-
     }
 
     static async loadAvatar(avatar, user){
