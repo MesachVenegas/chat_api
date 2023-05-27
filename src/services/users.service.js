@@ -16,15 +16,15 @@ class UserService {
     static async login(reqEmail, reqPassword) {
         try {
             const user = await User.findOne({ where: { email: reqEmail } });
-            if(!user) {
+            if (!user) {
                 return {
                     error: 'User not found',
                     errorMessage: 'The email address don\'t match'
                 }
             }
 
-            const validPassword = await  bcrypt.compare(reqPassword, user.password);
-            if(!validPassword) {
+            const validPassword = await bcrypt.compare(reqPassword, user.password);
+            if (!validPassword) {
                 return {
                     error: 'Invalid password',
                     errorMessage: 'The password don\'t match'
@@ -33,7 +33,7 @@ class UserService {
             const { id, firstName, lastName, userName, email } = user;
 
             const userData = { id, firstName, lastName, userName, email }
-            const token = jwt.sign(userData, process.env.JWT_LOGIN_KEYWORD, {
+            const token = jwt.sign(userData, process.env.JWT_KEYWORD, {
                 algorithm: process.env.JWT_ALGORITHM,
                 expiresIn: '1h'
             });
@@ -46,7 +46,7 @@ class UserService {
         }
     }
 
-    static async updateData(id, data){
+    static async updateData(id, data) {
         try {
             const result = await User.update(data, {
                 where: { id: id }
@@ -57,10 +57,11 @@ class UserService {
         }
     }
 
-    static async loadAvatar(avatar, user){
+    static async loadAvatar(id, url) {
         try {
-            await avatar.mv(`../images/avatar_${user.id}`);
-            return
+            const user = await User.findByPk(id);
+            const result = await user.update({ avatar: url });
+            return result;
         } catch (error) {
             throw error;
         }
