@@ -1,6 +1,6 @@
 # CHAT API
 
-API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcrypt.
+API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcrypt aplicando el uso de manejo de errores y autentificación con token 
 
 ## Diagrama de la base de datos
 
@@ -27,8 +27,8 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
 ✅ Crear las rutas para los usuarios.
 
 * Create a new User ☑️
-* User Login ☑️
-* Update User profile data ☑️
+* User Login ❌
+* Update User profile data ❌
 * load profile picture ❌
 
 ❌ Crear los servicios para los Chats.
