@@ -25,14 +25,30 @@ const validateUserCreate = [
 const loginValidation = [
     check('email', 'Error on email')
         .exists().withMessage("The email field don't exist")
-        .notEmpty().withMessage("The email cannot be empty")
+        .trim().notEmpty().withMessage("The email cannot be empty")
         .isString().withMessage("The email must be a string")
         .isEmail().withMessage("Email Invalid"),
     check('password', 'Error en password')
         .exists().withMessage("The password field don't exist")
         .notEmpty().withMessage("The password field cannot be empty")
         .isString().withMessage("The password must be a string")
-        .isLength({ min: "6" }).withMessage("The password will be 6 characters minimun"),
+        .isLength({ min: "6" }).withMessage("The password field must be at least 6 characters"),
+    (req, res, next) => {
+        validateFields(req, res, next);
+    }
+]
+
+const updateProfile = [
+    check('firstName', 'Error on first name field')
+        .exists().withMessage("The first name field don't exist")
+        .trim().notEmpty().withMessage("The first name field cannot be empty")
+        .isString().withMessage("The first name field must be a string")
+        .isLength({ min: "3"}).withMessage("first name must be at last 3 characters minimun"),
+    check('lastName', 'Error on last name field')
+        .exists().withMessage("The last name field don't exist")
+        .trim().notEmpty().withMessage("The last name field cannot be empty")
+        .isString().withMessage("The last name field must be a string")
+        .isLength({ min: "5"}).withMessage("last name must be at last 5 characters minimun"),
     (req, res, next) => {
         validateFields(req, res, next);
     }
