@@ -3,7 +3,6 @@ const db = require('../utils/connection');
 const path = require('path');
 
 const avatar = path.resolve('default_avatar.png')
-console.log(avatar)
 
 const User = db.define("users", {
     userName: {
@@ -23,10 +22,6 @@ const User = db.define("users", {
     password : {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-            isAlphanumeric: true,
-            length: { min: 6}
-        }
     },
     firstName: {
         type: DataTypes.STRING(150),
