@@ -24,8 +24,9 @@ const userLogin = async (req, res) => {
 
 const updateProfile = async (req, res) => {
     try {
+        const { id } = req.params;
         const data = req.body;
-        const response = await UserService.updateData(data);
+        const response = await UserService.updateData(id, data);
         res.status(200).json(response);
     } catch (error) {
         res.status(400).json(error);
