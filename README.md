@@ -17,9 +17,19 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
 * Update User profile data ☑️
 * load profile picture☑️
 
-❌ Crear Controlador para usuarios
+✅ Crear Controlador para usuarios
 
-❌ Crear las rutas para los usuarios.
+* Create a new User ☑️
+* User Login ☑️
+* Update User profile data ☑️
+* load profile picture ❌
+
+✅ Crear las rutas para los usuarios.
+
+* Create a new User ☑️
+* User Login ☑️
+* Update User profile data ☑️
+* load profile picture ❌
 
 ❌ Crear los servicios para los Chats.
 
@@ -51,7 +61,7 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
 
 ❌ Crear los servicios para los mensajes
 
-❌ Crear validaciones para la creación de usuarios.
+✅ Crear validaciones para la creación de usuarios.
 
 ❌ Crear validaciones para el login de usuarios.
 
@@ -63,7 +73,7 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
 
 ✅ Definir la configuración de la base de datos.
 
-❌ Registro de Usuarios.
+✅ Registro de Usuarios.
 
 ❌ Login de usuarios
 
