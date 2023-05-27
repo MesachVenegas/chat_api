@@ -10,12 +10,12 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
 
 ✅ Definir relaciones de la base de datos.
 
-❌ Crear los servicios para los usuarios.
+✅ Crear los servicios para los usuarios.
 
 * Create a new User ☑️
 * User Login ☑️
-* Update User profile data ⚠️
-* load profile picture❗
+* Update User profile data ☑️
+* load profile picture☑️
 
 ❌ Crear Controlador para usuarios
 
