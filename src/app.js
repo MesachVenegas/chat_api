@@ -1,8 +1,9 @@
+const initModels = require('./models/initModels');
+const fileUpload = require('express-file-upload');
 const db = require('./utils/connection');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const initModels = require('./models/initModels');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 8000;
@@ -11,6 +12,7 @@ const app = express();
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(fileUpload());
 
 initModels();
 
