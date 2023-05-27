@@ -1,7 +1,8 @@
-const userRoutes = require('./routes/user.routes');
+const errorRoutes = require('./routes/errors.routes');
 const initModels = require('./models/initModels');
 const fileUpload = require('express-fileupload');
 const db = require('./utils/connection');
+const apiRoutes = require('./routes');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -19,7 +20,10 @@ app.use(fileUpload({
     abortOnLimit: true,  // Indica si se supera el tamaño del archivo permitido aborte la subida del archivo.
     responseOnLimit: 'the file exceeds the size limit'
 }));
-app.use(userRoutes);
+
+
+apiRoutes(app);
+errorRoutes(app);
 
 initModels();
 
