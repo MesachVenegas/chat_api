@@ -22,6 +22,23 @@ const validateUserCreate = [
     }
 ]
 
+const loginValidation = [
+    check('email', 'Error on email')
+        .exists().withMessage("The email field don't exist")
+        .notEmpty().withMessage("The email cannot be empty")
+        .isString().withMessage("The email must be a string")
+        .isEmail().withMessage("Email Invalid"),
+    check('password', 'Error en password')
+        .exists().withMessage("The password field don't exist")
+        .notEmpty().withMessage("The password field cannot be empty")
+        .isString().withMessage("The password must be a string")
+        .isLength({ min: "6" }).withMessage("The password will be 6 characters minimun"),
+    (req, res, next) => {
+        validateFields(req, res, next);
+    }
+]
+
 module.exports = {
-    validateUserCreate
+    validateUserCreate,
+    loginValidation
 }
