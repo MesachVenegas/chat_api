@@ -57,9 +57,15 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
 
 ✅ Crear validaciones para el login de usuarios.
 
-❌ Crear middleware de autentificación de login de usuarios.
+✅ Crear middleware de autentificación de login de usuarios.
 
-❌ Crear middleware de manejo de errores.
+✅ Crear middleware de manejo de errores.
+
+✅ Crear middleware logger de errores.
+
+✅ Encriptado de contraseñas de usuarios.
+
+✅ Crear token de autentificación de usuarios.
 
 ✅ Crear Modelos de la Base de datos.
 
