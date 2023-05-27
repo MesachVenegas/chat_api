@@ -1,5 +1,6 @@
+const userRoutes = require('./routes/user.routes');
 const initModels = require('./models/initModels');
-const fileUpload = require('express-file-upload');
+const fileUpload = require('express-fileupload');
 const db = require('./utils/connection');
 const express = require('express');
 const morgan = require('morgan');
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(fileUpload());
+app.use(userRoutes);
 
 initModels();
 
