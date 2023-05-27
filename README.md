@@ -36,7 +36,7 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
 
 ❌ Crear middleware de manejo de errores.
 
-❌ Crear Modelos de la Base de datos.
+✅ Crear Modelos de la Base de datos.
 
 ✅ Definir la configuración de la base de datos.
 
