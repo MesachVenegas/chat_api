@@ -22,7 +22,7 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
     * Create a new User ☑️
     * User Login ☑️
     * Update User profile data ☑️
-    * load profile picture ⚠️ (fix load profile picture)
+    * load profile picture ☑️
 
 ✅ Crear las rutas para los usuarios.
 
