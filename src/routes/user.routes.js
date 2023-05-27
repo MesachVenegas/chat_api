@@ -8,6 +8,6 @@ const { validateUserCreate } = require('../validators/user.validate');
 
 const router = Router();
 
-router.post('/users', validateUserCreate , registerNewUser);
+router.post('/users/register', validateUserCreate , registerNewUser);
 
 module.exports = router
