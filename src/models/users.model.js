@@ -1,5 +1,9 @@
 const { DataTypes } = require('sequelize');
 const db = require('../utils/connection');
+const path = require('path');
+
+const avatar = path.resolve('default_avatar.png')
+console.log(avatar)
 
 const User = db.define("users", {
     userName: {
@@ -16,7 +20,7 @@ const User = db.define("users", {
             isEmail: true
         }
     },
-    passwords : {
+    password : {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -31,6 +35,10 @@ const User = db.define("users", {
     lastName: {
         type: DataTypes.STRING(150),
         field: "last_name"
+    },
+    avatar: {
+        type: DataTypes.STRING,
+        defaultValue: avatar
     }
 }, {
     timestamps: false
