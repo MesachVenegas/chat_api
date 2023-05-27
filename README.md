@@ -12,21 +12,44 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
 
 ❌ Crear los servicios para los usuarios.
 
+* Create a new User ⚠️
+* User Login ⚠️
+* Update User profile data ⚠️
+* load profile picture❗
+
 ❌ Crear Controlador para usuarios
 
 ❌ Crear las rutas para los usuarios.
 
-❌ Crear los servicios para las conversaciones.
+❌ Crear los servicios para los Chats.
 
-❌ Crear Controlador para conversaciones
+* Create a new Chat ⚠️
+* Create a new Group Chat ⚠️
+* Create service to get all chats of a user and their messages(couples) ⚠️
+* Create a service to get all chats, participants and their message(groups) ⚠️
+* Delete a chat ⚠️
+* Can add new users to group chat❗
+* Delete users from group chat❗
 
-❌ Crear las rutas para las conversaciones.
+❌ Crear Controlador para los chats
+
+❌ Crear las rutas para los chats.
 
 ❌ Crear los servicios para los chats
 
 ❌ Crear controlador para el chat
 
 ❌ Crear las rutas para el chat
+
+❌ Crear Servicios para los mensajes
+
+* Create a new message ⚠️
+
+❌ Crear Controlador para los mensajes
+
+❌ Crear las rutas para los mensajes.
+
+❌ Crear los servicios para los mensajes
 
 ❌ Crear validaciones para la creación de usuarios.
 
