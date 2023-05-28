@@ -2,12 +2,12 @@ const validateFields = require('../utils/fieldsValidate');
 const { check } = require('express-validator');
 
 const validateUserCreate = [
-    check('userName', 'erro on field username')
+    check('userName', 'error on field username')
         .exists().withMessage('the username field did not exist')
         .trim().notEmpty().withMessage('the username field cannot be empty')
         .isString().withMessage('the username field must be a string')
         .isLength({ min: "5", max: "100" }).withMessage("The username field must be at least 5 characters"),
-    check('email', 'erro on field email')
+    check('email', 'error on field email')
         .exists().withMessage('the email field does not exist')
         .trim().notEmpty().withMessage('the email field cannot be empty')
         .isString().withMessage('the email field must be a string')
