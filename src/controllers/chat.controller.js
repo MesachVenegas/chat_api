@@ -13,7 +13,7 @@ const createNewCoupleChat = async (req, res, next) => {
 const createNewGroupChat = async (req, res, next) => {
     try {
         const {title ,createdBy, participants} = req.body;
-        await ChatService.createGroup({title, type_id : 2 ,createdBy}, participants);
+        await ChatService.createGroup({title, typeId : 2 ,createdBy}, participants);
         res.status(201).send();
     } catch (error) {
         next(error);
