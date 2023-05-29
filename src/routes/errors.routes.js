@@ -4,9 +4,9 @@ const ormErrorHandler = require('../middlewares/ormErrorHandler');
 
 
 const errorRoutes = (app) => {
-    app.use(ormErrorHandler);
-    app.use(errorHandler);
     app.use(errorLogger);
+    app.use(errorHandler);
+    app.use(ormErrorHandler);
 
     app.use('*', (req, res) => {
         res.status(404).json({
