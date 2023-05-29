@@ -67,6 +67,19 @@ class UserService {
         }
     }
 
+    static async getAllUsers() {
+        try {
+            const result = await User.findAll({
+                attributes: {
+                    exclude: ['password']
+                }
+            });
+            return result;
+        } catch (error) {
+            throw error;
+        }
+    }
+
 }
 
 module.exports = UserService;
