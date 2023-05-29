@@ -1,3 +1,4 @@
+const ChatParticipant = require('../models/chatParticipants.model');
 const ChatType = require('../models/chatType.model');
 const Message = require('../models/message.model');
 const User = require('../models/users.model');
@@ -5,11 +6,16 @@ const Chat = require('../models/chat.model');
 
 class ChatService {
 
-    static async createChat(data, addressed) {
+    static async createChat(data, addressed,) {
         try {
             const chat = await Chat.create(data);
-            const participant = await User.findByPk(addressed)
-            chat.addUser(participant);
+            const relations = [
+                { chatId: chat.id, userId: chat.createdBy },
+                { chatId: chat.id, userId: addressed },
+            ]
+            await Promise.all(relations.map(async data => {
+                ChatParticipant.create(data);
+            }))
             return chat;
         } catch (error) {
             throw error;
@@ -26,14 +32,14 @@ class ChatService {
     }
 
 
-    static async getUserChats (id) {
+    static async getUserChats(id) {
         try {
             const chats = await Chat.findAll({
                 where: { createdBy: id },
                 attributes: {
                     exclude: ['createdBy', 'typeId'],
                 },
-                include:{
+                include: {
                     model: ChatType,
                     attributes: {
                         exclude: ['id']
@@ -46,9 +52,9 @@ class ChatService {
         }
     }
 
-    static async delete(id){
+    static async delete(id) {
         try {
-            const result = Chat.destroy({ where: id})
+            const result = Chat.destroy({ where: id })
             return result;
         } catch (error) {
             throw error;
@@ -58,26 +64,35 @@ class ChatService {
     static async getChatParticipants(id) {
         try {
             const chat = await Chat.findByPk(id, {
-                attributes: { exclude: ['createdBy', 'typeId']},
+                attributes: {
+                    exclude: ['typeId', 'createdBy']
+                },
                 include: [
                     {
-                        model: User,
-                        attributes: { exclude: ['password']},
-                        // through: { attributes: []}
+                        model: ChatType
                     },
                     {
-                        model: Message,
-                        attributes: { exclude: ['createdBy', 'chatId']},
-                        include: [
-                            {
-                                model: User,
-                                attributes: { exclude: ['password'] }
-                            }
-                        ]
+                        model: User,
+                        attributes: { exclude: ['password']}
                     },
+                    {
+                        model: Message
+                    }
                 ]
             });
-            return chat;
+            const participants = await ChatParticipant.findAll({
+                where: { chatId: id },
+                attributes: { exclude: ['userId', 'chatId', 'id']},
+                include:[
+                    {
+                        model: User,
+                        attributes: { exclude: ['password']}
+                    }
+                ]
+            });
+            return {
+                chat, participants
+            };
         } catch (error) {
             throw error;
         }
