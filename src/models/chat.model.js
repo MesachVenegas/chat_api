@@ -18,9 +18,7 @@ const Chat = db.define("chats", {
         field: "created_by"
     }
 }, {
-    timestamps: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+    timestamps: false,
 });
 
 module.exports = Chat;
