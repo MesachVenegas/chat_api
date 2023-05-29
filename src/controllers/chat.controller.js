@@ -30,8 +30,31 @@ const getAllChatsByUser = async (req, res, next) => {
     }
 }
 
+const getChatParticipantsWithMessages = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const response = await ChatService.getChatParticipants(id);
+        res.status(200).json(response);
+    } catch (error) {
+        next(error);
+    }
+}
+
+const deleteChat = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        await ChatService.delete(id);
+        res.status(200).send();
+    } catch (error) {
+        next(error);
+    }
+}
+
+
 module.exports = {
+    getChatParticipantsWithMessages,
     createNewCoupleChat,
     createNewGroupChat,
-    getAllChatsByUser
+    getAllChatsByUser,
+    deleteChat
 };
