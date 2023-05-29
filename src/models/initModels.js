@@ -1,4 +1,3 @@
-const ChatParticipants = require('./chatParticipants.model');
 const ChatType = require('./chatType.model');
 const Message = require('./message.model');
 const User = require('./users.model');
@@ -22,8 +21,16 @@ const initModels = () => {
     Chat.belongsTo(ChatType, { foreignKey: 'typeId'});
 
     // Un Usuario pertenece a uno o muchos Chats y un Chat puede tener uno o muchos usuarios.
-    User.belongsToMany(Chat, { foreignKey: 'userId', through: ChatParticipants});
-    Chat.belongsToMany(User, { foreignKey: 'chatId', through: ChatParticipants});
+    const ChatParticipants = Chat.belongsToMany(User, {
+        through: 'chat_participants',
+        foreignKey: 'userId',
+        otherKey: 'chatId'
+    });
+    User.belongsToMany(Chat, {
+        through: 'chat_participants',
+        foreignKey: 'chatId',
+        otherKey: 'userId'
+    });
 }
 
 module.exports = initModels;
