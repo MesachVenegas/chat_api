@@ -6,8 +6,8 @@ const Chat = db.define("chats", {
         type: DataTypes.STRING(100),
         allowNull: false,
     },
-    chatType: {
-        type: DataTypes.STRING(100),
+    typeId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 1,
         field: "type_id"
