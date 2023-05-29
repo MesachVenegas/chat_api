@@ -61,7 +61,18 @@ const updateAvatar = async (req, res, next) => {
     }
 }
 
+const getContacts = async (req, res, next) => {
+    try {
+        const response = await UserService.getAllUsers();
+        res.status(200).json(response)
+    } catch (error) {
+        next(error);
+    }
+}
+
+
 module.exports = {
+    getContacts,
     registerNewUser,
     updateProfile,
     updateAvatar,
