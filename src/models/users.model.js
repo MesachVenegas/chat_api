@@ -31,7 +31,7 @@ const User = db.define("users", {
         type: DataTypes.STRING(150),
         field: "last_name"
     },
-    avatar: {
+    avatar_url: {
         type: DataTypes.STRING,
         defaultValue: avatar
     }
