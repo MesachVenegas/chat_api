@@ -1,9 +1,11 @@
 const { Router } = require('express');
-const { registerNewUser, userLogin, updateProfile, updateAvatar } = require('../controllers/user.controller');
+const { registerNewUser, userLogin, updateProfile, updateAvatar, getContacts } = require('../controllers/user.controller');
 const { validateUserCreate, loginValidation, updateValidation } = require('../validators/user.validate');
 const userAuth = require('../middlewares/auth.middleware');
 
 const router = Router();
+
+router.get('/users', userAuth, getContacts);
 
 router.post('/users/register', validateUserCreate, registerNewUser);
 
