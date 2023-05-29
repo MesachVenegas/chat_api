@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const db = require('../utils/connection');
 
-const ChatGroupType = db.define("chats_by_type", {
+const ChatParticipants = db.define("chat_participants", {
     chatId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -16,4 +16,4 @@ const ChatGroupType = db.define("chats_by_type", {
     timestamps: false
 });
 
-module.exports = ChatGroupType;
+module.exports = ChatParticipants;
