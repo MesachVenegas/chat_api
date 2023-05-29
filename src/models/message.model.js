@@ -15,14 +15,10 @@ const Message = db.define("messages", {
         type: DataTypes.INTEGER,
         allowNull: false,
         field: 'chat_id'
-    },
-    createAt: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        field: 'send_at'
     }
 }, {
-    timestamps: false,
+    timestamps: true,
+    createdAt: 'sended_at'
 });
 
 module.exports = Message;
