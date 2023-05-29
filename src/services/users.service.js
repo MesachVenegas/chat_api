@@ -60,7 +60,7 @@ class UserService {
     static async loadAvatar(id, url) {
         try {
             const user = await User.findByPk(id);
-            const result = await user.update({ avatar: url });
+            const result = await user.update({ avatar_url: url });
             return result;
         } catch (error) {
             throw error;
