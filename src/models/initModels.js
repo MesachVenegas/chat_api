@@ -17,7 +17,8 @@ const initModels = () => {
     Message.belongsTo(Chat, { foreignKey: 'chatId'});
     Chat.hasMany(Message, { foreignKey: 'chatId'});
 
-    // Un tipo de chat pertenece a un chat.
+    // Un tipo de chat pertenece a un chat y un chat tiene un tipo.
+    ChatType.hasOne(Chat, { foreignKey: 'typeId'});
     Chat.belongsTo(ChatType, { foreignKey: 'typeId'});
 
     // Un Usuario pertenece a uno o muchos Chats y un Chat puede tener uno o muchos usuarios.
