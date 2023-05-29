@@ -33,9 +33,9 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
 
 ❌ Crear los servicios para los Chats.
 
-    * Create a new Chat ❌
-    * Create a new Group Chat ❌
-    * Create service to get all chats of a user and their messages(couples) ❌
+    * Create a new Chat ☑️
+    * Create a new Group Chat ☑️
+    * Create service to get all chats of a user and their messages(couples) ☑️
     * Create a service to get all chats, participants and their message(groups) ❌
     * Delete a chat ❌
     * Can add new users to group chat❗
