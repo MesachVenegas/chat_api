@@ -16,10 +16,13 @@ const Message = db.define("messages", {
         allowNull: false,
         field: 'chat_id'
     },
+    createAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        field: 'send_at'
+    }
 }, {
-    timestamps: true,
-    updatedAt: false,
-    createdAt: 'send_at'
+    timestamps: false,
 });
 
 module.exports = Message;
