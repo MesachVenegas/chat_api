@@ -31,12 +31,12 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
     * Update User profile data ☑️
     * load profile picture ☑️
 
-❗ Crear los servicios para los Chats.
+✅ Crear los servicios para los Chats.
 
     * Create a new Chat ☑️
     * Create a new Group Chat ☑️
     * Create service to get all chats of a user ☑️
-    * Create a servie to get all Chats their participants and messages ⚠️
+    * Create a servie to get all Chats their participants and messages ✅
     * Delete a chat ☑️
     * Can add new users to group chat ❌
     * Delete users from group chat❌
@@ -79,7 +79,7 @@ API de chat no en tiempo real creada con Node Js, Express, Sequelize, JWT & Bcry
 
 ✅ Lista de Contactos(Todos los usuarios registrados en la aplicación).
 
-⚠️ Obtener una Chat sus mensajes y los participantes de la misma.
+✅ Obtener una Chat sus mensajes y los participantes de la misma.
 
 ✅ Crear mensaje dentro de una conversacion.
 
